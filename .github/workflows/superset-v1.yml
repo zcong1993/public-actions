@@ -22,6 +22,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: zcong/superset:1.0.0-1
+        tags: zcong/superset:1.0.1
         context: ./superset
         file: ./superset/Dockerfile
