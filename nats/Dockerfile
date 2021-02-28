@@ -6,6 +6,7 @@ RUN apk add --update git
 RUN mkdir /nats-server-tmp && \
     cd /nats-server-tmp && \
     git clone https://github.com/nats-io/nats-server.git && \
+    cd nats-server && \
     CGO_ENABLED=0 go build -v -ldflags "-s -w -X github.com/nats-io/nats-server/server.gitCommit=`git rev-parse --short HEAD`" -o /nats-server
 
 RUN mkdir -p src/github.com/nats-io && \
