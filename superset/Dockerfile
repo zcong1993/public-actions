@@ -1,4 +1,6 @@
-FROM apache/superset:1.0.1
+ARG version=1.0.1
+
+FROM apache/superset:${VERSION}
 
 USER root
 

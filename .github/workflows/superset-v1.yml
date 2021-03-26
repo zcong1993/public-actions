@@ -1,7 +1,12 @@
 name: Superset New Builder
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'superset version'
+        required: false
+        default: '1.0.1'
 
 jobs:
   build:
@@ -22,6 +27,8 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: zcong/superset:1.0.1
+        tags: zcong/superset:test-${{ github.event.inputs.version }}
         context: ./superset
         file: ./superset/Dockerfile
+        build-args: |
+          version=${{ github.event.inputs.version }}
