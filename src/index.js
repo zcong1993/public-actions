@@ -45,7 +45,7 @@ const query = async(params = {}) => {
   }).then(r => r.json())
 }
 
-const queryAll = async (q = 'server=="cloudflare" && port=="443" && country=="JP"', duration = 10) => {
+const queryAll = async (q = 'server=="cloudflare" && port=="443" && country=="JP"', duration = 30) => {
   const size = 50
   const page = 1
 
