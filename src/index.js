@@ -67,6 +67,6 @@ const queryAll = async (q = 'server=="cloudflare" && port=="443" && country=="JP
   return [...res.values()]
 }
 
-queryAll().then(data => fs.writeFile('jp.txt', data.join('\n'), {
+queryAll().then(data => fs.writeFileSync('jp.txt', data.join('\n'), {
   encoding: 'utf-8'
 }))
