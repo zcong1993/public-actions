@@ -17,8 +17,9 @@ jobs:
       run: |
         curl -sL https://github.com/XIU2/CloudflareSpeedTest/releases/download/v2.2.5/CloudflareST_linux_amd64.tar.gz -o CloudflareST_linux_amd64.tar.gz
         tar -zxvf CloudflareST_linux_amd64.tar.gz
+        chmod +x CloudflareST
         ls
         node ./src/index.js
         cat jp.txt
-        ./CloudflareST.exe -url https://st.congs.life -n 500 -tl 200 -sl 25 -dn 4 -f ./jp.txt -o result.csv
+        ./CloudflareST -url https://st.congs.life -n 500 -tl 200 -sl 25 -dn 4 -f ./jp.txt -o result.csv
         cat result.csv
