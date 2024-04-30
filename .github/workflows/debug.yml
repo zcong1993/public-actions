@@ -5,6 +5,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v3
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        cache: 'npm'
+    - run: npm ci
+    - shell: bash
+      env:
+        FOFA_PRIVATE_KEY: ${{ secrets.FOFA_PRIVATE_KEY }}
+        FOFA_API_KEY: ${{ secrets.FOFA_API_KEY }}
+      run: |
+        node ./src/index.js
+        cat jp.txt
